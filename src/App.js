@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
-function App() {
-  return (
+import Card from './components/Card';
+import axios from 'axios';
+class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      persons:[],
+      search:''
+    }
+  }
+  handleChange(event) {
+    this.setState({search: event.target.value});
+  }
+  componentDidMount() {
+    axios.get('https://jsonplaceholder.typicode.com/users').then(res => {
+        const persons = res.data;
+        this.setState({ persons });
+    })
+  }
+  render() {
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input type='text' onKeyUp={(e)=>this.handleChange(e)}/>
+      <ul className='cards'>
+        { this.state.persons.filter(data => {
+          if(this.state.search == null)
+            return data
+          else if(data.name.toLowerCase().includes(this.state.search.toLowerCase()) || data.username.toLowerCase().includes(this.state.search.toLowerCase())){
+              return data
+          }
+        }).map(person => <li  key={person.id.toString()} >
+          <Card person={person}></Card>
+        </li>)}
+
+      </ul>
     </div>
   );
+  }
 }
 
 export default App;

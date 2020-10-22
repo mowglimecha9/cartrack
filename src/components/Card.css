@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+@import url('https://css.gg/css');
+.card-container {
+    position: relative;
+    overflow: hidden;
+    min-height: 300px;
+    width: 100%;
+    border:1px solid hsl(0, 0%, 67%);
+    border-radius: 4px;
+    background: rgb(253,187,45);
+    background: linear-gradient(342deg, rgba(253,187,45,0) 63%, rgba(34,193,195,1) 63%);
+    font-family: 'Roboto'
+}
+
+.title-card {
+    width: 100%;
+    height: 150px;
+}
+
+.title-card img {
+    display: block;
+    margin:20px auto;
+    border-radius: 50%;
+}
+
+.title-card h4.name {
+    margin-bottom: 5px;
+    color: #2d3436;
+    text-align: center;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+p {
+    margin:0;
+    color: #b2bec3;
+    text-align: center;
+    font-size: 12px;
+}
+.ad {
+    margin-bottom: 0.5em;
+    color: #bdc3c7;
+    font-size:12px;
+}
+.sm {
+    display: block;
+    padding-top :20px;
+}
+
+.sm li{
+    min-height: auto;
+    width: 20px;
+    height: 20px;
+}
+
+.ai {
+    display: inline-block;
+    margin-right: 5x;
+}
+
+.additional-info {
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width:100%;
+    height: 150px;
+}
+
+
+.additional-info button {
+    padding:10px;
+}
